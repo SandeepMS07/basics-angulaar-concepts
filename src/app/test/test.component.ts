@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 
 // decorator
 @Component({
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <!-- interpolation -->
 
-    /** * can do * /
+    <!-- /** * can do * /
     <h2>Welcome {{ name }}</h2>
     <h2>{{ 2 + 2 }}</h2>
     <h2>{{ 'Welcome ' + name }}</h2>
@@ -31,7 +31,7 @@ import { Component, OnInit } from '@angular/core';
       class binding tht conditionally apply multiple class
     </h2>
 
-    <!-- style binding -->
+    <h1 [style.color]="'red'" [style.font-size.px]="50"  >style binding</h1>
     <h2 [style.color]="'orange'">orange hello</h2>
     <div>
       <span [style.font-size.px]="isTrue ? 20 : 12"
@@ -48,6 +48,25 @@ import { Component, OnInit } from '@angular/core';
     </div>
     <h2 [style.color]="highlightColor">Style Binding</h2>
     <h2 [ngStyle]="titleStyles">Style binding wth multiple style</h2>
+
+    
+    <h1 [style.color]="'red'" [style.font-size.px]="50"  >event binding</h1>
+
+    <button (click)="onClick()">Greet</button>
+    <button (click)="onClick1($event)">Greet</button>
+    <button (click)="greeting='welcome sandeep'">Greet</button>
+    {{ greeting }} -->
+
+    <!-- 
+    <h1 [style.color]="'red'" [style.font-size.px]="50"  >Template Refferenece Variables</h1>
+
+    <input #myInput type="text">
+    <button (click)="logMessage(myInput.value)">Log</button>
+    <button (click)="logMessage1(myInput)">Log</button> -->
+
+    <h1 [style.color]="'red'" [style.font-size.px]="50">Two Way Binding</h1>
+    <input [(ngModel)]="name" type="text" />
+    {{ name }}
   `,
 
   styles: [
@@ -65,30 +84,49 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class TestComponent implements OnInit {
-  public name = 'SANDEEP';
-  public siteUrl = window.location.href;
-  // class binding
-  public successClass = 'text-success';
-  public hasError = true;
-  public hasError1 = false;
-  public isSpecial = true;
-  public messageClasses = {
-    'text-success': !this.hasError,
-    'text-danger': this.hasError,
-    'text-special': this.isSpecial,
-  };
-  isTrue: boolean = true;
-  public highlightColor = 'skyblue';
-  public titleStyles = {
-    color: 'blue',
-    fontStyle: 'italic',
-  };
+  // public name = 'SANDEEP';
+  // public siteUrl = window.location.href;
+  // // class binding
+  // public successClass = 'text-success';
+  // public hasError = true;
+  // public hasError1 = false;
+  // public isSpecial = true;
+  // public messageClasses = {
+  //   'text-success': !this.hasError,
+  //   'text-danger': this.hasError,
+  //   'text-special': this.isSpecial,
+  // };
+  // isTrue: boolean = true;
+  // public highlightColor = 'skyblue';
+  // public titleStyles = {
+  //   color: 'blue',
+  //   fontStyle: 'italic',
+  // };
+  // public greeting = '';
+
+  // onClick() {
+  //   console.log('welcome to app');
+  //   this.greeting = 'welcome to app';
+  // }
+  // onClick1(event: any) {
+  //   console.log(event);
+
+  //   this.greeting = event.type;
+  // }
+  public name = '';
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  greetUser() {
-    return 'Hello ' + this.name;
-  }
+  // logMessage(value: string) {
+  //   console.log(value)
+  // }
+  // logMessage1(value: any) {
+  //   console.log(value)
+  // }
+
+  // greetUser() {
+  //   return 'Hello ' + this.name;
+  // }
 }

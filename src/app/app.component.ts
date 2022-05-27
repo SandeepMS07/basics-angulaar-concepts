@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'basics-concepts';
+  public name = "Sandeep M S"
+  public message= ""
 }
